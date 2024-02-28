@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("Images/Untitled\ design.png");
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            color: rgb(252, 252, 252);
+        }
+
+        .logo img {
+            height: 78px;
+            width: auto;
+            object-fit: cover;
+        }
+
+        .navbar-brand {
+            margin-left: 100px;
+        }
+
+        .navbar-brand a {
+            color: darkslategray;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+        .navbar-link {
+            font-size: 18px;
+            text-decoration: none;
+            color: darkslategray;
+            padding: 10px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .navbar-link:hover {
+            background-color: #ccc;
+            color: white;
+        }
+
+        .form {
+            margin-top: 50px;
+        }
+
+        .reservation-box {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .reservation h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+        }
+
+        .form-control label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-group label {
+            margin-right: 20px;
+        }
+
+        .select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .submit {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit:hover {
+            background-color: #666;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            grid-column: 1 / span 2;
+            grid-row: 3 / span 1;
+            margin-top: 0px;
+        }
+
+        .footer-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-image img {
+            height: 80px;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-left: 30px;
+        }
+
+        .footer-text p {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navbar-brand">
+            <a href="Index.html" class="logo"><img src="Images/logo.png" alt="Logo"></a>
+        </div>
+        <div class="navbar-links">
+            <a href="Index.html" class="navbar-link">Home</a>
+            <a href="About Us.html" class="navbar-link">About</a>
+            <a href="Menu.html" class="navbar-link">Menu</a>
+            <a href="Log In.html" class="navbar-link">Reservation</a>
+            <a href="Contact.html" class="navbar-link">Contact</a>
+        </div>
+    </div>
+    <form class="form" novalidate></form>
+    <div class="reservation-box">
+        <div class="reservation">
+            <h2>Reservation Form</h2>
+            <form action="#" method="post">
+                <div class="form-control">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" type="text" c lass="input>
+                </div>
+                <div class=" form-control">
+                    <label for="contact">Contact Number</label>
+                    <input type="tel" id="contact" name="contact" type="text" class="input>
+                </div>
+                <div class=" form-control">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" type="text" class="input>
+                </div>
+                <div class=" form-control">
+                    <label for="guests">Number of Guests</label>
+                    <input type="number" id="guests" name="guests" type="text" class="input>
+                </div>
+                <div class=" form-control">
+                    <label for="event-type">Event Type</label>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="event-type[]" value="birthday"> Birthday
+                        </label>
+                        <label>
+                            <input type="checkbox" name="event-type[]" value="wedding"> Wedding
+                        </label>
+                        <label>
+                            <input type="checkbox" name="event-type[]" value="other"> Other
+                        </label>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="downpayment">Down Payment</label>
+                    <select id="downpayment" name="downpayment" required>
+                        <option value="">-- Select an option --</option>
+                        <option value="50">50%</option>
+                        <option value="100">100%</option>
+                    </select>
+                </div>
+                <button class="submit"><a href="Menu.html">Reserve</a></button>
+            </form>
+        </div>
+        <div class="footer">
+            <div class="footer-image">
+                <img src="Images/logo.png" alt="Your alt text here">
+            </div>
+            <div class="footer-text">
+                <p>&copy;2023 Restaurant Name All rights reserved.</p>
+            </div>
+        </div>
+
+</body>
+
+</html>

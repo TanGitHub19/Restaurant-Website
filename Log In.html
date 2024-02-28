@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f2f2f2;
+            background-image: url("Images/Untitled\ design.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+            left: 0;
+            right: 0;
+            top: 0;
+            font-family: 'Montserrat', sans-serif;
+            padding: 0 5%;
+            height: 100px;
+            background-color: white;
+        }
+
+        .logo img {
+            height: 78px;
+            width: auto;
+            object-fit: cover;
+        }
+
+        nav .logo {
+            float: left;
+            width: 40%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        nav .links {
+            float: right;
+            padding: 0;
+            margin: 0;
+            width: 60%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        nav .links li {
+            list-style: none;
+        }
+
+        nav .links a {
+            display: block;
+            font-size: 18px;
+            text-decoration: none;
+            color: darkslategray;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            width: 130px;
+            border-radius: 16px;
+            text-align: center;
+            margin-right: 1px;
+        }
+
+        nav .links a:hover {
+            background-color: #ccc;
+            color: white;
+        }
+
+        .navbar-links[href="Reservation.html"] {
+            background-color: #ccc;
+        }
+
+
+        #nav-toggle {
+            position: absolute;
+            top: -100px;
+        }
+
+        nav .icon-burger {
+            display: none;
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        nav .icon-burger .line {
+            width: 30px;
+            height: 5px;
+            background-color: black;
+            margin: 5px;
+            border-radius: 3px;
+            transition: all .3s ease-in-out;
+        }
+
+        @media screen and (max-width: 1172px) {
+            nav .logo {
+                float: none;
+                width: auto;
+                justify-content: center;
+            }
+
+            nav .links {
+                float: none;
+                position: fixed;
+                z-index: 9;
+                left: 0;
+                right: 0;
+                top: 100px;
+                bottom: 100%;
+                width: auto;
+                height: auto;
+                flex-direction: column;
+                justify-content: space-evenly;
+                background-color: rgba(0, 0, 0, .8);
+                overflow: hidden;
+                box-sizing: border-box;
+                transition: all .5s ease-in-out;
+            }
+
+            nav .links a {
+                font-size: 20px;
+                color: white;
+            }
+
+
+            nav :checked~.links {
+                bottom: 0;
+            }
+
+            nav .icon-burger {
+                display: block;
+            }
+
+            nav :checked~.icon-burger .line:nth-child(1) {
+                transform: translateY(10px) rotate(225deg);
+            }
+
+            nav :checked~.icon-burger .line:nth-child(3) {
+                transform: translateY(-10px) rotate(-225deg);
+            }
+
+            nav :checked~.icon-burger .line:nth-child(2) {
+                opacity: 0;
+            }
+
+        }
+
+
+        .Login {
+            width: 400px;
+            height: 300px;
+            padding: 50px 0px 16px 0px;
+            margin: 170px auto;
+            background: #fff;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #07001f;
+            text-align: left;
+            margin: 0px 0px 10px 50px;
+        }
+
+        p {
+            text-align: left;
+            margin: 0px 0px 20px 50px;
+        }
+
+        form input {
+            width: 80%;
+            outline: none;
+            border: none;
+            background: #dfe9f5;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .recover {
+            text-align: right;
+            font-size: 0.8rem;
+            margin: 12px 40px 0px 0px;
+        }
+
+        .recover a {
+            text-decoration: none;
+            color: #07001f;
+        }
+
+        button {
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            width: 85%;
+            background: tomato;
+            color: #fff;
+            cursor: pointer;
+            width: 80%;
+        }
+
+
+        button:hover {
+            background-color: red;
+        }
+
+        button a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .not-member {
+            font-size: 12px;
+            margin-top: 16px;
+
+        }
+
+        .not-member a {
+            color: tomato;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 530px) {
+            .Login {
+                width: 60%;
+                height: 30%;
+                padding: 50px 0px 16px 0px;
+                margin: 120px auto;
+                text-align: center;
+
+            }
+
+            h1 {
+                font-size: 20px;
+                text-align: center;
+                margin: 0px 0px 10px 0px;
+            }
+
+            p {
+                font-size: 16px;
+                text-align: center;
+                margin: 0px 0px 20px 0px;
+            }
+
+            form input {
+                width: 70%;
+                max-width: 300px;
+                padding: 12px 14px;
+                margin-bottom: 10px;
+                border-radius: 10px;
+            }
+
+            .recover {
+                text-align: right;
+                font-size: 0.8rem;
+                margin: 12px 40px 0px 0px;
+            }
+
+            .recover a {
+                text-decoration: none;
+                color: #07001f;
+                padding: 0px 5px;
+            }
+
+            button {
+                font-size: 16px;
+                margin-top: 10px;
+                width: 70%;
+                transition: 0ms;
+            }
+
+
+            button:hover {
+                background-color: red;
+            }
+
+            button a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            .not-member {
+                font-size: 12px;
+                margin-top: 16px;
+
+            }
+
+            .not-member a {
+                color: tomato;
+                text-decoration: none;
+            }
+        }
+
+        @media screen and (max-width: 375px) {
+            .Login {
+                width: 70%;
+                height: 30%;
+                padding: 50px 0px 16px 0px;
+                margin: 40px auto;
+                text-align: center;
+            }
+
+            p {
+                font-size: 14px;
+                text-align: center;
+                margin: 0px 15px 20px 15px;
+            }
+
+        }
+
+        .footer {
+            bottom: 0%;
+            width: 100%;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .footer-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-image img {
+            height: 80px;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-left: 30px;
+        }
+
+        .footer-text p {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <input id="nav-toggle" type="checkbox">
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+        <div class="logo">
+            <img src="Images/logo.png" alt="Logo">
+        </div>
+        <ul class="links">
+            <li><a class="navbar-links" href="Index.html">Home</a></li>
+            <li><a class="navbar-links" href="Menu.html">Menu</a></li>
+            <li><a class="navbar-links" href="Log In.html">Reservation</a></li>
+            <li><a class="navbar-links" href="About Us.html">About</a></li>
+            <li><a class="navbar-links" href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="Login">
+        <h1>Log in</h1>
+        <p>Log in now and get full access to our app.
+        </p>
+        <form>
+            <input type="text" placeholder="Enter username">
+            <input type="password" placeholder="Password">
+            <p class="recover">
+                <a href="#">Recover Password</a>
+            </p>
+            <closeform></closeform>
+        </form>
+        <button class="submit"><a href="Reservation.html">Log In</a></button>
+        <div class="not-member">
+            Not a member? <a href="Sign Up.html">Register Now</a>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-image">
+            <img src="Images/logo.png" alt="Your alt text here">
+        </div>
+        <div class="footer-text">
+            <p>&copy;2023 Restaurant Name All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>

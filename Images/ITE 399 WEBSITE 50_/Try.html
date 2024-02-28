@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Modal Example</title>
+    <style>
+        /* Image container */
+        .image-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Modal content */
+        .modal-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: #fefefe;
+            padding: 20px;
+            margin: 10% auto;
+            width: 80%;
+            max-width: 1000px;
+        }
+
+        /* Modal image */
+        .modal-image {
+            max-width: 70%;
+            margin-right: 20px;
+        }
+
+        /* Modal details */
+        .modal-details {
+            flex-grow: 1;
+        }
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-container">
+        <img src="Images/337123362_162147133405217_1262895577013416678_n.jpg" onclick="openModal(1)">
+    </div>
+    <div class="image-container">
+        <img src="Images/337362647_978738046837515_5326376655063378074_n.jpg" onclick="openModal(2)">
+    </div>
+    <div class="image-container">
+        <img src="Images/337362647_978738046837515_5326376655063378074_n.jpg" onclick="openModal(3)">
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-details">
+                <h3 id="modal-title">Image Title</h3>
+                <img id="modal-image" src="">
+                <p id="modal-description">Image Description</p>
+                <form>
+                    <label for="modal-quantity">Quantity:</label>
+                    <input type="number" id="modal-quantity" name="modal-quantity" min="1" max="10">
+                    <br><br>
+                    <label for="modal-price">Price:</label>
+                    <input type="text" id="modal-price" name="modal-price">
+                    <br><br>
+                    <button id="modal-order-btn">Order</button>
+                    <button id="modal-deliver-btn">Deliver</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var modalTitle = document.getElementById("modal-title");
+        var modalImg = document.getElementById("modal-image");
+        var modalDesc = document.getElementById("modal-description");
+        var modalQty = document.getElementById("modal-quantity");
+        var modalPrice = document.getElementById("modal-price");
+        var orderBtn = document.getElementById
+
+
+        // Open modal
+        function openModal(src) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            modalTitle.textContent = "Image Title";
+            modalDescription.textContent = "Image Description";
+        }
+
+        // Close modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when user clicks outside
+
+
+    </script>
+</body>
+
+</html>

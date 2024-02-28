@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4180e16424.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+            left: 0;
+            right: 0;
+            top: 0;
+            font-family: 'Montserrat', sans-serif;
+            padding: 0 5%;
+            height: 100px;
+            background-color: white;
+        }
+
+        .logo img {
+            height: 78px;
+            width: auto;
+            object-fit: cover;
+        }
+
+        nav .logo {
+            float: left;
+            width: 40%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        nav .links {
+            float: right;
+            padding: 0;
+            margin: 0;
+            width: 60%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        nav .links li {
+            list-style: none;
+        }
+
+        nav .links a {
+            display: block;
+            font-size: 18px;
+            text-decoration: none;
+            color: darkslategray;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            width: 130px;
+            border-radius: 16px;
+            text-align: center;
+            margin-right: 1px;
+        }
+
+        nav .links a:hover {
+            background-color: #ccc;
+            color: white;
+        }
+
+        .navbar-links[href="About Us.html"] {
+            background-color: #ccc;
+        }
+
+
+        #nav-toggle {
+            position: absolute;
+            top: -100px;
+        }
+
+        nav .icon-burger {
+            display: none;
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        nav .icon-burger .line {
+            width: 30px;
+            height: 5px;
+            background-color: black;
+            margin: 5px;
+            border-radius: 3px;
+            transition: all .3s ease-in-out;
+        }
+
+        @media screen and (max-width: 1172px) {
+            nav .logo {
+                float: none;
+                width: auto;
+                justify-content: center;
+            }
+
+            nav .links {
+                float: none;
+                position: fixed;
+                z-index: 9;
+                left: 0;
+                right: 0;
+                top: 100px;
+                bottom: 100%;
+                width: auto;
+                height: auto;
+                flex-direction: column;
+                justify-content: space-evenly;
+                background-color: rgba(0, 0, 0, .8);
+                overflow: hidden;
+                box-sizing: border-box;
+                transition: all .5s ease-in-out;
+            }
+
+            nav .links a {
+                font-size: 20px;
+                color: white;
+            }
+
+
+            nav :checked~.links {
+                bottom: 0;
+            }
+
+            nav .icon-burger {
+                display: block;
+            }
+
+            nav :checked~.icon-burger .line:nth-child(1) {
+                transform: translateY(10px) rotate(225deg);
+            }
+
+            nav :checked~.icon-burger .line:nth-child(3) {
+                transform: translateY(-10px) rotate(-225deg);
+            }
+
+            nav :checked~.icon-burger .line:nth-child(2) {
+                opacity: 0;
+            }
+
+        }
+
+
+        .about-us-container {
+            background-color: #faf9f9;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .about-us-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-us-container p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+
+        .faq-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFF5EE;
+            border-radius: 0px;
+
+        }
+
+        .faq-question {
+            margin-bottom: 20px;
+        }
+
+        .faq-question h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .team-container {
+            margin: 10px 20px 0px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .team-member {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+
+        .team-member h3 {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-image img {
+            height: 80px;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-left: 30px;
+        }
+
+        .footer-text p {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <input id="nav-toggle" type="checkbox">
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+        <div class="logo">
+            <img src="Images/logo.png" alt="Logo">
+        </div>
+        <ul class="links">
+            <li><a class="navbar-links" href="Index.html">Home</a></li>
+            <li><a class="navbar-links" href="Menu.html">Menu</a></li>
+            <li><a class="navbar-links" href="Log In.html">Reservation</a></li>
+            <li><a class="navbar-links" href="About Us.html">About</a></li>
+            <li><a class="navbar-links" href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="about-us-container">
+        <h2>About Us</h2>
+        <p>At Western Oceanic Grandiur, we're passionate about bringing the freshest seafood to your plate. Our team of
+            experienced chefs is dedicated to creating delicious dishes using only the highest quality ingredients. We
+            pride ourselves on our commitment to sustainability, and we work closely with our suppliers to ensure that
+            all of our seafood is responsibly sourced.</p>
+        <p>Our restaurant offers a warm and welcoming atmosphere, with comfortable seating and friendly staff ready to
+            make your dining experience unforgettable. Whether you're celebrating a special occasion or just enjoying a
+            night out, we're here to make your visit as enjoyable as possible.</p>
+        <p>In addition to our seafood specialties, we also offer a range of other dishes to suit all tastes and
+            preferences. Our menu includes vegetarian and vegan options, as well as gluten-free choices. We also have a
+            selection of carefully curated wine and cocktail options to complement your meal.</p>
+    </div>
+
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-question">
+            <h3>Where does your seafood come from?
+            </h3>
+            <p> Our seafood is sourced from trusted suppliers who use sustainable and ethical fishing practices. We
+                prioritize freshness and quality, so we only choose the best seafood available.</p>
+        </div>
+        <div class="faq-question">
+            <h3>Are there any vegetarian or vegan options on the menu?</h3>
+            <p> Yes, we offer a range of vegetarian and vegan dishes on our menu. We understand the importance of
+                catering to different dietary needs and preferences, so we have options available for everyone.</p>
+        </div>
+        <div class="faq-question">
+            <h3>Can I make a reservation online?</h3>
+            <p> Yes, you can make a reservation through our website. Simply click on the "Reservations" tab and fill out
+                the form. We recommend making a reservation in advance to secure your spot.</p>
+        </div>
+
+        <div class="faq-question">
+            <h3>Do you offer takeout or delivery services?</h3>
+            <p>Yes, we offer both takeout and delivery services. You can place an order online or over the phone, and
+                we'll have your food ready for pickup or deliver it straight to your doorstep.</p>
+        </div>
+
+        <div class="faq-question">
+            <h3>Is your restaurant child-friendly?</h3>
+            <p>Yes, we welcome families with children. We have a kids' menu available, and our staff will do their best
+                to accommodate any special requests or needs you may have.</p>
+        </div>
+
+    </div>
+
+    <div class="team-container">
+        <h2>Our Team</h2>
+        <div class="team-member">
+            <a
+                href="https://www.linkedin.com/in/mark-tristan-raroque-880808257?fbclid=IwAR3S9FyE1ryek5bZAbRInmQURYn0FWWj25JlgQPo97idjgGAgojR-Vqbdx8"><img
+                    src="Images/338608197_968820331201485_932365725083334018_n.jpg"></a>
+            <h3>Lead Developer</h3>
+        </div>
+        <div class="team-member">
+            <a
+                href="https://www.linkedin.com/in/reynard-rullan-siapno-423497257/?fbclid=IwAR20VmXQLcH_4zWtaZJL6dDrfWbgzqW83tBd92IDyfJv06hYGkksFt6rlvw"><img
+                    src="Images/337123362_162147133405217_1262895577013416678_n.jpg"></a>
+            <h3>Designer</h3>
+        </div>
+        <div class="team-member">
+            <a
+                href="https://www.linkedin.com/in/jhon-r-neil-ebuan-36224a257/?fbclid=IwAR2ZTDz8t37gGZZK7VeqbfaM9iBkDLma3EM9mRG7Fp5Hwh6mC_G5X85K_fc"><img
+                    src="Images/337362647_978738046837515_5326376655063378074_n.jpg"></a>
+            <h3>Researcher </h3>
+        </div>
+        <div class="team-member">
+            <a
+                href="https://www.linkedin.com/in/john-lloyd-palma-romero-b87265272?fbclid=IwAR1q0yTQqtOaZHPhRT0ADsl-ufPKwfGutirnEfJpZa5FcyoSF3py8ep2XG0"><img
+                    src="Images/338733398_737157591276663_8824572554753476661_n.jpg"></a>
+            <h3>Integrator</h3>
+        </div>
+        <div class="team-member">
+            <a
+                href="https://www.linkedin.com/in/engilbert-comadre-78a000146?fbclid=IwAR2xRP_gV7dxHhZ9XhuAa5FvrRVIR3XSZstFNRfH9IK435a4GJnebUcXmfQ"><img
+                    src="Images/338273256_1570807233393832_7315253542223316907_n.jpg"></a>
+            <h3>Coaches</h3>
+        </div>
+        <div class="team-member">
+            <a
+                href="https://www.linkedin.com/in/reynard-visperas-19b241200?fbclid=IwAR3S9FyE1ryek5bZAbRInmQURYn0FWWj25JlgQPo97idjgGAgojR-Vqbdx8"><img
+                    src="Images/337606038_1364296567466325_8855212631809369259_n.jpg"></a>
+            <h3>Coaches</h3>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-image">
+            <img src="Images/logo.png" alt="Your alt text here">
+        </div>
+        <div class="footer-text">
+            <p>&copy;2023 Restaurant Name All rights reserved.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

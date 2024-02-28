@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WESTERN OCEANIC GRANDIUR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4180e16424.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="Home">
+        <nav>
+            <input id="nav-toggle" type="checkbox">
+            <label for="nav-toggle" class="icon-burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </label>
+            <div class="logo">
+                <a href="#Home">
+                    <img src="Images/logo.png" alt="Logo" style="cursor: pointer;">
+                </a>
+            </div>
+            <ul class="links">
+                <li><a class="navbar-links" href="#Home">Home</a></li>
+                <li><a class="navbar-links" href="#Projects">Projects</a></li>
+                <li><a class="navbar-links" href="Reservation.html">Reservation</a></li>
+                <li><a class="navbar-links" href="About Us.html">About</a></li>
+                <li><a class="navbar-links" href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <header>
+            <video autoplay loop muted>
+                <source src="Images/lv_0_20230324172656.mp4" type="video/mp4">
+            </video>
+            <div class="header-overlay">
+                <h1>Western</h1>
+                <h1>Oceanic </h1>
+                <h3>Grandiur</h3>
+                <a href="Menu.html" class="button">Menu</a>
+            </div>
+        </header>
+    </section>
+    <section id="Projects">
+        <h1>Signiture dish</h1>
+        <div class="special dish">
+            <div class="dish">
+                <div class="dish-item">
+                    <img src="Images/Honey Mustard Grilled Salmon with Avocado Basil Sauce_.jfif" alt="Grilled Salmon"
+                        class="animated-left">
+                    <h2 class="animated-left">Grilled Salmon</h2>
+                    <p class="animated-left"> A healthy and flavorful dish, seasoned with herbs and spices and served
+                        with a side of steamed
+                        vegetables and choice of rice or potatoes.</p>
+                </div>
+                <div class="dish-item">
+                    <img src="Images/Lobster Bisque (Plus Video).jfif" alt="Lobster Bisque" class="animated-down">
+                    <h2 class="animated-down">Lobster Bisque</h2>
+                    <p class="animated-down">A creamy soup made with fresh lobster meat, vegetables, and herbs,
+                        garnished with a dollop of
+                        sour
+                        cream and served with warm bread.</p>
+                </div>
+                <div class="dish-item">
+                    <img src="Images/Singapore-style Chilli Prawns _ Marion_s Kitchen.jfif" alt="Shrimp Scamp"
+                        class="animated-right">
+                    <h2 class="animated-right">Shrimp Scamp</h2>
+                    <p class="animated-right">>Succulent shrimp sautéed in garlic and butter, served over a bed of
+                        linguine and garnished with
+                        fresh
+                        parsley and lemon wedges.</p>
+                </div>
+            </div>
+    </section>
+    <div class="slideshow-container">
+        <div class="slidershow">
+            <div class="slides">
+                <div class="slide s1">
+                    <img src="Images/_original.webp" alt="">
+                </div>
+                <div class="slide">
+                    <img src="Images/_original (1).webp" alt="">
+                </div>
+                <div class="slide">
+                    <img src="Images/_original (2).webp" alt="">
+                </div>
+                <div class="slide">
+                    <img src="Images/_original (3).webp" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <div class="footer">
+        <div class="footer-image">
+            <img src="Images/logo.png" alt="Your alt text here">
+        </div>
+        <div class="footer-text">
+            <p>&copy;2023 Restaurant Name All rights reserved.</p>
+        </div>
+    </div>
+    <script>
+        var slideIndex = 0;
+        var slides = document.getElementsByClassName("slide");
+
+        function showSlides() {
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+
+        showSlides();
+    </script>
+</body>
+
+
+</html>

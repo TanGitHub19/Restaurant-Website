@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+            left: 0;
+            right: 0;
+            top: 0;
+            font-family: 'Montserrat', sans-serif;
+            padding: 0 5%;
+            height: 100px;
+            background-color: white;
+        }
+
+        .logo img {
+            height: 78px;
+            width: auto;
+            object-fit: cover;
+        }
+
+        nav .logo {
+            float: left;
+            width: 40%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        nav .links {
+            float: right;
+            padding: 0;
+            margin: 0;
+            width: 60%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        nav .links li {
+            list-style: none;
+        }
+
+        nav .links a {
+            display: block;
+            font-size: 18px;
+            text-decoration: none;
+            color: darkslategray;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            width: 130px;
+            border-radius: 16px;
+            text-align: center;
+            margin-right: 1px;
+        }
+
+        nav .links a:hover {
+            background-color: #ccc;
+            color: white;
+        }
+
+        .navbar-links[href="Contact.html"] {
+            background-color: #ccc;
+        }
+
+
+        #nav-toggle {
+            position: absolute;
+            top: -100px;
+        }
+
+        nav .icon-burger {
+            display: none;
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        nav .icon-burger .line {
+            width: 30px;
+            height: 5px;
+            background-color: black;
+            margin: 5px;
+            border-radius: 3px;
+            transition: all .3s ease-in-out;
+        }
+
+        @media screen and (max-width: 1172px) {
+            nav .logo {
+                float: none;
+                width: auto;
+                justify-content: center;
+            }
+
+            nav .links {
+                float: none;
+                position: fixed;
+                z-index: 9;
+                left: 0;
+                right: 0;
+                top: 100px;
+                bottom: 100%;
+                width: auto;
+                height: auto;
+                flex-direction: column;
+                justify-content: space-evenly;
+                background-color: rgba(0, 0, 0, .8);
+                overflow: hidden;
+                box-sizing: border-box;
+                transition: all .5s ease-in-out;
+            }
+
+            nav .links a {
+                font-size: 20px;
+                color: white;
+            }
+
+
+            nav :checked~.links {
+                bottom: 0;
+            }
+
+            nav .icon-burger {
+                display: block;
+            }
+
+            nav :checked~.icon-burger .line:nth-child(1) {
+                transform: translateY(10px) rotate(225deg);
+            }
+
+            nav :checked~.icon-burger .line:nth-child(3) {
+                transform: translateY(-10px) rotate(-225deg);
+            }
+
+            nav :checked~.icon-burger .line:nth-child(2) {
+                opacity: 0;
+            }
+
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0px;
+        }
+
+        .contact-info {
+            margin-top: 0px;
+            font-size: 30px;
+            color: #555;
+            padding: 20px;
+            background-color: aliceblue;
+            text-align: center;
+        }
+
+        .contact-info h1 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            font-size: 20px;
+        }
+
+        .contact-info a {
+            margin: 10px;
+            color: #555;
+            font-size: 24px;
+        }
+
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            color: black;
+            padding: 0px;
+            grid-column: 1 / span 2;
+            grid-row: 3 / span 1;
+            margin-top: 10px;
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+        }
+
+        .footer-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-image img {
+            height: 80px;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-left: 30px;
+        }
+
+        .footer-text p {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 1280px) {
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .map-container {
+                padding-bottom: 80%;
+                /* or adjust to your desired height */
+            }
+        }
+
+        @media (max-width: 1000px) {
+
+            /* adjust the grid layout for small screens */
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                grid-row: 2 / 3;
+            }
+        }
+    </style>
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <input id="nav-toggle" type="checkbox">
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+        <div class="logo">
+            <img src="Images/logo.png" alt="Logo">
+        </div>
+        <ul class="links">
+            <li><a class="navbar-links" href="Index.html">Home</a></li>
+            <li><a class="navbar-links" href="Menu.html">Menu</a></li>
+            <li><a class="navbar-links" href="Log In.html">Reservation</a></li>
+            <li><a class="navbar-links" href="About Us.html">About</a></li>
+            <li><a class="navbar-links" href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="grid-container">
+        <div class="contact-info">
+            <h1><i class="fas fa-map-marker-alt"></i> LOCATION</h1>
+            <p><i class="fas fa-home"></i> 123 Main Street</p>
+            <p>Anytown, USA 12345</p>
+            <h1><i class="fas fa-envelope"></i> EMAIL US</h1>
+            <p>info@restaurant.com</p>
+            <h1><i class="fas fa-phone"></i> CONTACT US</h1>
+            <p>(123)-456-7890</p>
+            <p>Telephone: +1 123-456-7890</p>
+            <h1>FIND US ON...</h1>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.403849389669!2d120.34206011526973!3d16.044519744360343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339168007b2b6bb7%3A0xf9cf72d2a6a35d69!2s2400%20Arellano%20St%2C%20Downtown%20District%2C%20Dagupan%2C%20Pangasinan!5e0!3m2!1sen!2sph!4v1679892433695!5m2!1sen!2sph"
+                width="100%" height="475px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="footer">
+            <div class="footer-image">
+                <img src="Images/logo.png" alt="Your alt text here">
+            </div>
+            <div class="footer-text">
+                <p>&copy;2023 Restaurant Name All rights reserved.</p>
+            </div>
+        </div>
+</body>
+
+</html>
